@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>User Details</h2>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+            <tr id="userDetailsRow">
+                <!-- User details will be dynamically inserted here -->
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Retrieve user details from localStorage
+        const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+        if (userDetails) {
+            const userDetailsRow = document.getElementById('userDetailsRow');
+            userDetailsRow.innerHTML = `
+                <td>${userDetails.firstName}</td>
+                <td>${userDetails.lastName}</td>
+                <td>${userDetails.email}</td>
+                <td>${userDetails.dob}</td>
+                <td>${userDetails.age}</td>
+                <td>${userDetails.gender}</td>
+                <td>${userDetails.phone}</td>
+                <td>${userDetails.address}</td>
+            `;
+        }
+    </script>
+</body>
+</html>
