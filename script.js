@@ -1,7 +1,7 @@
 function submitForm(event) {
-    event.preventDefault();  // Prevent the form from submitting the traditional way
+    event.preventDefault();  
 
-    // Get the form values
+    
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
@@ -11,7 +11,7 @@ function submitForm(event) {
     const phone = document.getElementById('phone').value;
     const address = document.getElementById('address').value;
 
-    // Validation
+   
     if (!/^[A-Za-z]{4,}$/.test(firstName)) {
         alert("First name should be at least 4 characters long.");
         return;
@@ -41,7 +41,7 @@ function submitForm(event) {
         return;
     }
 
-    // If validation is successful, redirect to another page and pass data
+
     const userDetails = {
         firstName,
         lastName,
@@ -53,9 +53,8 @@ function submitForm(event) {
         address
     };
 
-    // Store data in localStorage (this will be used to display data on another page)
+
     localStorage.setItem('userDetails', JSON.stringify(userDetails));
 
-    // Redirect to display.html
     window.location.href = 'display.html';
 }
